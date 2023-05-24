@@ -1,0 +1,110 @@
+<!-- banner -->
+<div class="inner_page-banner one-img"></div>
+<!--//banner -->
+<!-- short -->
+<div class="using-border py-3">
+  <div class="inner_breadcrumb ml-4">
+    <ul class="short_ls">
+      <li>
+        <a routerLink="">Home</a>
+        <span>/ /</span>
+      </li>
+      <li>About</li>
+    </ul>
+  </div>
+</div>
+<!-- //short-->
+<div>
+  <mat-card>
+    <mat-card-header>
+      <h1>Add Subject</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="addSubject" (ngSubmit)="onSubmit()">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>Enter your subject</mat-label>
+            <input
+              matInput
+              placeholder="Enter subject name"
+              formControlName="name"
+            />
+            <mat-error
+              *ngIf="addSubject.get('name')?.errors?.['required'] && addSubject.get('name')?.touched"
+              >Enter subject name</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>Enter your course-name</mat-label>
+            <input
+              matInput
+              placeholder="Enter course name"
+              formControlName="courseName"
+            />
+            <mat-error
+              *ngIf="addSubject.get('courseName')?.errors?.['required'] && addSubject.get('courseName')?.touched"
+              >Enter course name</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <button class="mat-50" mat-raised-button color="primary">Save</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<br />
+<!-- find subject data list -->
+<div class="mat-elevation-z8" *ngIf="dataSource">
+  <table mat-table [dataSource]="dataSource.result">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let subject">{{ subject.name }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="courseName">
+      <th mat-header-cell *matHeaderCellDef>Course Name</th>
+      <td mat-cell *matCellDef="let subject">{{ subject.courseName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let subject">
+        <button
+          mat-icon-button
+          (click)="deleteSubject(subject._id)"
+          color="warn"
+          aria-label="Example icon button with a vertical three dot icon"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          [routerLink]="['edit', subject._id]"
+          mat-icon-button
+          color="primary"
+          aria-label="Example icon button with a vertical three dot icon"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="dataSource.totalResults"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    showFirstLastButtons
+    (page)="handlePageEvent($event)"
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>

@@ -1,0 +1,33 @@
+form {
+  display: block;
+}
+.mat-toolbar.mat-dark {
+  background: #000;
+  color: #fff;
+}
+mat-card-header {
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+mat-card {
+  display: flex;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  width: 50%;
+}
+
+.mat-mdc-form-field {
+  width: 98%;
+  margin: 1%;
+}
+
+.mat-50 {
+  width: 48%;
+  margin: 1%;
+}
+
+button {
+  margin: 2px;
+}

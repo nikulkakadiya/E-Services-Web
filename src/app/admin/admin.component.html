@@ -1,0 +1,64 @@
+<!-- <app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer> -->
+
+<mat-toolbar color="primary" *ngIf="isAuthenticated">
+  <button
+    mat-icon-button
+    (click)="opened = !opened"
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Admin</span>
+  <span class="example-spacer"></span>
+
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <!-- <mat-icon>more_vert</mat-icon> -->
+    <img
+      src="assets/img/profile-img.jpg"
+      alt="Profile"
+      class="rounded-circle"
+    />
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/admin/profile">
+      <mat-icon>person2Outlined</mat-icon>
+      <span>profile</span>
+    </button>
+
+    <button mat-menu-item (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+      <span>Log-Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side" *ngIf="isAuthenticated">
+    <button mat-menu-item routerLinkActive="active" routerLink="/admin/home">
+      <mat-icon>dashboard</mat-icon>
+      <span>dashboard</span>
+    </button>
+    <a mat-menu-item routerLinkActive="active">
+      <mat-icon>person2Outlined</mat-icon>
+      <span>view user</span>
+    </a>
+  </mat-sidenav>
+
+  <mat-sidenav-container>
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</mat-sidenav-container>

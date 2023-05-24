@@ -1,0 +1,60 @@
+<!-- banner -->
+<div class="inner_page-banner one-img"></div>
+<!--//banner -->
+<!-- short -->
+<div class="using-border py-3">
+  <div class="inner_breadcrumb ml-4">
+    <ul class="short_ls">
+      <li>
+        <a routerLink="">Home</a>
+        <span>/ /</span>
+      </li>
+      <li>About</li>
+    </ul>
+  </div>
+</div>
+<!-- //short-->
+
+<!-- edit form -->
+<div>
+  <mat-card>
+    <mat-card-header>
+      <h1>Add Subject</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="editSubject" (ngSubmit)="onSubmit()">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>Enter your subject</mat-label>
+            <input
+              matInput
+              placeholder="Enter subject name"
+              formControlName="name"
+            />
+            <mat-error
+              *ngIf="editSubject.get('name')?.errors?.['required'] && editSubject.get('name')?.touched"
+              >Enter subject name</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>Enter your course-name</mat-label>
+            <input
+              matInput
+              placeholder="Enter course name"
+              formControlName="courseName"
+            />
+            <mat-error
+              *ngIf="editSubject.get('courseName')?.errors?.['required'] && editSubject.get('courseName')?.touched"
+              >Enter course name</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <button class="mat-50" mat-raised-button color="primary">Edit</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

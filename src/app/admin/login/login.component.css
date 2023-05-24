@@ -1,0 +1,48 @@
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* input.example-right-align {
+    -moz-appearance: textfield;
+  } */
+form {
+  display: block;
+}
+.mat-toolbar.mat-dark {
+  background: #000;
+  color: #fff;
+}
+mat-card-header {
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+mat-card {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  width: 35%;
+}
+
+.mat-mdc-form-field {
+  width: 98%;
+  margin: 1%;
+}
+
+.mat-50 {
+  width: 48%;
+  margin: 1%;
+}
+
+button {
+  margin: 2px;
+}

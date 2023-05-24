@@ -1,0 +1,61 @@
+<!-- banner -->
+<div class="inner_page-banner one-img"></div>
+<!--//banner -->
+<!-- short -->
+<div class="using-border py-3">
+  <div class="inner_breadcrumb ml-4">
+    <ul class="short_ls">
+      <li>
+        <a routerLink="/home">Home</a>
+        <span>/ /</span>
+      </li>
+      <li>About</li>
+    </ul>
+  </div>
+</div>
+<!-- //short-->
+
+<div class="container">
+  <h3 class="text-center mt-5 mb-5">Angular Basic Pagination Example</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let post of POSTS
+            | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+        "
+      >
+        <th scope="row">{{ post.id }}</th>
+        <td>{{ post.title }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <div class="col-md-7">
+      <select class="form-control" (change)="onTableSizeChange($event)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
+</div>

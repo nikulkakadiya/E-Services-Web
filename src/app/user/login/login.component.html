@@ -1,0 +1,125 @@
+<!-- banner -->
+<div class="inner_page-banner one-img"></div>
+<!--//banner -->
+<!-- short -->
+<div class="using-border py-3">
+  <div class="inner_breadcrumb ml-4">
+    <ul class="short_ls">
+      <li>
+        <a routerLink="">Home</a>
+        <span>/ /</span>
+      </li>
+      <li>Login</li>
+    </ul>
+  </div>
+</div>
+<!-- //short-->
+<!-- Login -->
+<div>
+  <div *ngIf="isLoading" style="text-align: center">
+    <!-- <app-loading-spinner></app-loading-spinner> -->
+  </div>
+  <mat-card>
+    <mat-card-header>
+      <h1>Login</h1>
+    </mat-card-header>
+    <div *ngIf="errorSMS" class="alert alert-primary" role="alert">
+      {{ errorSMS }}
+    </div>
+    <mat-card-content *ngIf="!isLoading">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- phoneNum -->
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput maxlength="10" matInput formControlName="mobile_no" />
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error
+            *ngIf="loginForm.errors?.['invalidPhone'] && getControl1('mobile_no')?.touched"
+            >Enter Only Digit..</mat-error
+          >
+          <mat-error
+            *ngIf="
+              !loginForm.get('mobile_no')!.valid &&
+              loginForm.get('mobile_no')!.touched
+            "
+            >Please Enter Your Phone Number</mat-error
+          >
+        </mat-form-field>
+        <!--// phoneNum -->
+
+        <!-- Email -->
+        <!-- <div class="example-container">
+          <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="pat@example.com"
+              formControlName="email"
+            />
+            <mat-error
+              *ngIf="
+                !loginForm.get('email')!.valid &&
+                loginForm.get('email')!.touched
+              "
+              >Please Enter Valid email</mat-error
+            >
+          </mat-form-field>
+        </div> -->
+        <!--// Email -->
+
+        <!-- Password -->
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="
+              loginForm.get('password')?.errors?.['required'] &&
+              loginForm.get('password')!.touched"
+            >Please Enter Password</mat-error
+          >
+        </mat-form-field>
+        <mat-error
+          *ngIf="
+          loginForm.get('password')?.errors?.['pattern'] &&
+          loginForm.get('password')!.touched
+        "
+          >Please enter valid password Uppercase letters && Lowercase letters &&
+          Numbers && Symbols && more then 8 charactor</mat-error
+        >
+        <!--// Password -->
+
+        <!-- user type -->
+        <!-- <mat-form-field class="example-full-width"> -->
+        <input matInput formControlName="role" hidden="true" />
+        <!-- </mat-form-field> -->
+        <!-- // user type -->
+
+        <div>
+          <button class="mat-50" mat-raised-button color="primary">
+            Submit
+          </button>
+        </div>
+        <br />
+        <p>
+          Not a member?
+          <a routerLink="/user/register" class="btn btn-link">Register Now</a>
+        </p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<!-- //Login -->

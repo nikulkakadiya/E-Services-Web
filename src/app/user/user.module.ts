@@ -13,26 +13,27 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ServicesComponent } from './services/services.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
-    declarations: [
-        UserComponent,
-        HeaderComponent,
-        FooterComponent,
-        HomeComponent,
-        AboutComponent,
-        LoginComponent,
-        // LoadingSpinnerComponent,
-        RegistrationComponent,
-        ServicesComponent,
-        ProfileComponent,
-    ],
-    imports: [
-        CommonModule,
-        UserRoutingModule,
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-    ],
+  declarations: [
+    UserComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginComponent,
+    LoadingSpinnerComponent,
+    RegistrationComponent,
+    ServicesComponent,
+    ProfileComponent,
+  ],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class UserModule { }
+export class UserModule {}

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       mobile_no: new FormControl('', [
         Validators.required,
         Validators.maxLength(10),
-        Validators.pattern(/^[0-9]*$/),
+        Validators.pattern(/^[1-9]\d{9}$/),
       ]),
       //   email: new FormControl('', [
       //     Validators.required,

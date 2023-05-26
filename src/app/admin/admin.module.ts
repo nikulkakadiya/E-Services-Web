@@ -11,8 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminService } from './authentication/admin.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AdminInterceptorService } from './authentication/admin-interceptor.service';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +22,7 @@ import { AdminInterceptorService } from './authentication/admin-interceptor.serv
     LoginComponent,
     ProfileComponent,
     LoadingSpinnerComponent,
+    UserDetailsComponent,
   ],
   imports: [
     CommonModule,

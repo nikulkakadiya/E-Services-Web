@@ -27,11 +27,35 @@
         <div
           class="card-body profile-card pt-4 d-flex flex-column align-items-center"
         >
-          <img
-            src="assets/img/profile-img.jpg"
-            alt="Profile"
-            class="rounded-circle"
-          />
+          <div *ngIf="userData.profile_img">
+            <img
+              src="{{ userData.profile_img }}"
+              alt="Profile"
+              class="rounded-circle"
+            />
+          </div>
+          <form
+            [formGroup]="profileUpload"
+            (ngSubmit)="onUpload()"
+            *ngIf="!userData.profile_img"
+          >
+            <div class="input-group mb-3">
+              <input
+                type="file"
+                class="form-control"
+                formControlName="userProfile"
+                (change)="onFileSelected($event)"
+              />
+              <button mat-raised-button color="primary">
+                <mat-icon>upload</mat-icon>
+              </button>
+              <br />
+              <mat-error
+                *ngIf="profileUpload.get('userProfile')?.errors?.['required'] && profileUpload.get('userProfile')?.touched"
+                >Selecte your photos</mat-error
+              >
+            </div>
+          </form>
           <h2>{{ userData.email }}</h2>
           <h3>{{ userData.role }}</h3>
           <div class="social-links mt-2">

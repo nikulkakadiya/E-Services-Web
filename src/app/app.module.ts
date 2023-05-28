@@ -10,17 +10,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PostService } from './allServices/post.service';
 import { AdminService } from './admin/authentication/admin.service';
 import { AdminInterceptorService } from './admin/authentication/admin-interceptor.service';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 // import { CrudComponent } from './crud/crud.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // LoadingSpinnerComponent,
     PaginationComponent,
     // CrudComponent,
   ],
@@ -34,6 +33,10 @@ import { AdminInterceptorService } from './admin/authentication/admin-intercepto
     ToastrModule.forRoot(),
     HttpClientModule,
     NgxPaginationModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+    }),
   ],
   providers: [
     PostService,

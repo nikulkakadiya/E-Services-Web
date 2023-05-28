@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   hide = true;
   errorSMS: string = '';
   loginForm!: FormGroup;
-  isLoading = false;
 
   constructor(
     private toast: ToastrService,
@@ -50,15 +49,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.isLoading = true;
       this.adminAuthService.adminLogin(this.loginForm.value).subscribe(
         (resData) => {
-          this.isLoading = false;
           this.toast.success('login sucess..');
           this.router.navigate(['/admin/home']);
         },
         (err) => {
-          this.isLoading = false;
           this.toast.error(err.error.message);
           this.errorSMS = err.error.message;
         }

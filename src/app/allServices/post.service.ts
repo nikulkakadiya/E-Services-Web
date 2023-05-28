@@ -46,4 +46,8 @@ export class PostService {
   userProfile(): Observable<Profile> {
     return this.http.get<Profile>(`${this.URL}/api/users/userProfile`);
   }
+
+  profileUpload(data: any): Observable<any> {
+    return this.http.patch<any>(`${this.URL}/api/users/profileUpload`, data);
+  }
 }

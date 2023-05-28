@@ -1,8 +1,16 @@
 <!-- Header -->
 <!-- <app-header></app-header> -->
+<ngx-ui-loader
+  fgsColor="#3f51b5"
+  pbColor="#3f51b5"
+  text="Please wiat..."
+  textColor="#3f51b5"
+></ngx-ui-loader>
 
 <!-- one page app -->
-<router-outlet></router-outlet>
+<div ngxUiLoaderBlurred (blur)="(10)">
+  <router-outlet></router-outlet>
+</div>
 
 <!-- Footer -->
 <!-- <app-footer></app-footer> -->

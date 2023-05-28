@@ -13,7 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ServicesComponent } from './services/services.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinn
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    LoadingSpinnerComponent,
     RegistrationComponent,
     ServicesComponent,
     ProfileComponent,

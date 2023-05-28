@@ -1,4 +1,3 @@
-import { LoadingSpinnerComponent } from './../shared/loading-spinner/loading-spinner.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material/material.module';
 import { AdminRoutingModule } from './admin.routing.module';
@@ -21,7 +20,6 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     FooterComponent,
     LoginComponent,
     ProfileComponent,
-    LoadingSpinnerComponent,
     UserDetailsComponent,
   ],
   imports: [

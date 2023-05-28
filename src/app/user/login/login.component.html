@@ -16,9 +16,6 @@
 <!-- //short-->
 <!-- Login -->
 <div>
-  <div *ngIf="isLoading" style="text-align: center">
-    <app-loading-spinner></app-loading-spinner>
-  </div>
   <mat-card>
     <mat-card-header>
       <h1>Login</h1>
@@ -26,7 +23,7 @@
     <div *ngIf="errorSMS" class="alert alert-primary" role="alert">
       {{ errorSMS }}
     </div>
-    <mat-card-content *ngIf="!isLoading">
+    <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <!-- phoneNum -->
         <mat-form-field appearance="fill">

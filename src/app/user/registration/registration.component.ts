@@ -20,7 +20,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   hide = true;
   errorSMS: string = '';
   registerForm!: FormGroup;
-  isLoading: boolean = false;
 
   constructor(
     private toast: ToastrService,
@@ -55,18 +54,15 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      this.isLoading = true;
       const data = this.registerForm.value;
       console.log(data);
 
       this.auth.register(data).subscribe(
         (data1) => {
-          this.isLoading = false;
           this.toast.success(data1.message);
           this.router.navigate(['/user/login']);
         },
         (err) => {
-          this.isLoading = false;
           this.toast.warning(err.error.message);
           this.errorSMS = err.error.message;
         }

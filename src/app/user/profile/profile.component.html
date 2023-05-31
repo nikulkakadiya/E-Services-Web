@@ -83,7 +83,7 @@
               </button>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <button
                 class="nav-link"
                 data-bs-toggle="tab"
@@ -101,7 +101,7 @@
               >
                 Change Password
               </button>
-            </li>
+            </li> -->
           </ul>
           <div class="tab-content pt-2">
             <div
@@ -124,6 +124,19 @@
                 <div class="col-lg-3 col-md-4 label">Email</div>
                 <div class="col-lg-9 col-md-8">{{ userData.email }}</div>
               </div>
+              <!-- <form [formGroup]="address" (ngSubmit)="onAddress()">
+                <div class="example-container">
+                  <mat-form-field>
+                    <mat-label>Enter your subject</mat-label>
+                    <input
+                      matInput
+                      placeholder="Enter address 1"
+                      formControlName="line_1"
+                    />
+                    <mat-error>Enter subject name</mat-error>
+                  </mat-form-field>
+                </div>
+              </form> -->
             </div>
 
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">

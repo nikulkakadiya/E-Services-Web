@@ -25,10 +25,14 @@ const adminRoutes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AdminAuthGuard],
+        data: { expectedRole: 'admin' },
       },
       {
         path: 'userdetails',
         component: UserDetailsComponent,
+        canActivate: [AdminAuthGuard],
+        data: { expectedRole: 'admin' },
       },
     ],
   },

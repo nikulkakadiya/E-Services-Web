@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProfileComponent implements OnInit {
   public userData: any = [];
   profileUpload!: FormGroup;
+  // address!: FormGroup;
   selectedFile!: File;
   constructor(private postService: PostService, private toast: ToastrService) {}
 
@@ -58,4 +59,6 @@ export class ProfileComponent implements OnInit {
     }
     this.profileUpload.reset();
   }
+
+  // onAddress() {}
 }
